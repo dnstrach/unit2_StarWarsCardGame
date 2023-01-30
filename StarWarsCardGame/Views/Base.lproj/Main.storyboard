@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NQg-rb-0YU">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Character Collection View Controller-->
+        <scene sceneID="L2M-Dt-fmS">
+            <objects>
+                <collectionViewController id="Jcw-QE-tRy" customClass="CharacterCollectionViewController" customModule="StarWarsCardGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="cBS-4s-lGu">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yQh-I4-hOP">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="characterCell" id="cga-Rm-Zvu" customClass="CharacterCollectionViewCell" customModule="StarWarsCardGame" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="127.99999999999997" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="d0A-vj-Blw">
+                                    <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KaX-Ra-u6T">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="KaX-Ra-u6T" firstAttribute="top" secondItem="d0A-vj-Blw" secondAttribute="top" id="9w5-sr-efu"/>
+                                        <constraint firstAttribute="trailing" secondItem="KaX-Ra-u6T" secondAttribute="trailing" id="AXC-kl-s9Y"/>
+                                        <constraint firstAttribute="bottom" secondItem="KaX-Ra-u6T" secondAttribute="bottom" id="V9P-N8-UKo"/>
+                                        <constraint firstItem="KaX-Ra-u6T" firstAttribute="leading" secondItem="d0A-vj-Blw" secondAttribute="leading" id="Xg9-lI-KBJ"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="characterImageView" destination="KaX-Ra-u6T" id="tfa-42-5dj"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Jcw-QE-tRy" id="jVL-qy-NIS"/>
+                            <outlet property="delegate" destination="Jcw-QE-tRy" id="EXk-I2-chd"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="0l0-Pu-4GK">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="line.3.horizontal.decrease" catalog="system" id="Stz-dt-S9U">
+                            <connections>
+                                <segue destination="4bS-b1-cP8" kind="presentation" identifier="FilterVC" id="b0h-ik-Ruh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oBz-6i-JpS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1193.1297709923663" y="-216.19718309859155"/>
+        </scene>
+        <!--Filter View Controller-->
+        <scene sceneID="Q1F-wB-1j2">
+            <objects>
+                <viewController id="4bS-b1-cP8" customClass="FilterViewController" customModule="StarWarsCardGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="abU-Pr-Qnu">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="8Oy-qh-aVX">
+                                <rect key="frame" x="20" y="79" width="353" height="157"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9y-Al-1EO">
+                                        <rect key="frame" x="0.0" y="0.0" width="157" height="157"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="h9y-Al-1EO" secondAttribute="height" multiplier="1:1" id="0mm-Zr-nsT"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="sith"/>
+                                        <connections>
+                                            <action selector="sithButtonTapped:" destination="4bS-b1-cP8" eventType="touchUpInside" id="Jbi-ew-mMx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHh-Hz-S8g">
+                                        <rect key="frame" x="196" y="0.0" width="157" height="157"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="jedi"/>
+                                        <connections>
+                                            <action selector="jediButtonTapped:" destination="4bS-b1-cP8" eventType="touchUpInside" id="9ua-cR-cOV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pSg-dH-rhw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pSg-dH-rhw" firstAttribute="trailing" secondItem="8Oy-qh-aVX" secondAttribute="trailing" constant="20" id="C9e-Yg-Hz9"/>
+                            <constraint firstItem="8Oy-qh-aVX" firstAttribute="leading" secondItem="pSg-dH-rhw" secondAttribute="leading" constant="20" id="DuB-AI-feb"/>
+                            <constraint firstItem="8Oy-qh-aVX" firstAttribute="top" secondItem="pSg-dH-rhw" secondAttribute="top" constant="20" id="WID-tj-Vy5"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GOi-45-KQt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1961" y="-216"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wiq-1l-Ov3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NQg-rb-0YU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g1I-aB-T4p">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Jcw-QE-tRy" kind="relationship" relationship="rootViewController" id="Ihb-cC-bLn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qmp-bI-Qit" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="266.41221374045801" y="-216.19718309859155"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="jedi" width="112.5" height="112.5"/>
+        <image name="line.3.horizontal.decrease" catalog="system" width="128" height="73"/>
+        <image name="sith" width="93" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
